@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fractional Partners Asia</title>
+<title>Fractional Partners Asia — AI Governance for SMEs</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -22,6 +22,9 @@
     --gold-bg: rgba(154,123,79,.06);
     --gold-border: rgba(154,123,79,.2);
     --gold-10: rgba(154,123,79,.1);
+    --red: #b91c1c;
+    --red-bg: #fef2f2;
+    --red-border: #fecaca;
   }
 
   *{margin:0;padding:0;box-sizing:border-box}
@@ -43,9 +46,9 @@
   section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 10vw;position:relative}
 
   /* HERO */
-  .hero{background:var(--bg)}
-  .hero-sub{font-size:clamp(1.1rem,1.8vw,1.25rem);color:var(--navy-50);max-width:560px;line-height:1.75;margin-top:1.5rem}
-  .hero-accent{color:var(--gold);font-weight:500;margin-top:1rem;font-size:1.1rem}
+  .hero{background:var(--bg);min-height:100vh;justify-content:center}
+  .hero h1{margin-bottom:.5rem}
+  .hero-sub{font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--navy-30);max-width:480px;line-height:1.7;margin-top:1rem}
 
   /* STATS */
   .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;max-width:840px}
@@ -54,7 +57,6 @@
   .stat-l{font-size:.8rem;color:var(--navy-30);line-height:1.4;font-weight:400}
 
   /* PAIN — MOCK WINDOWS */
-  .pain-section{background:var(--bg)}
   .mock-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2.5rem;max-width:960px}
   .mock{border:1px solid var(--navy-10);border-radius:8px;overflow:hidden;background:#fff;transition:box-shadow .3s}
   .mock:hover{box-shadow:0 4px 20px rgba(10,22,40,.08)}
@@ -67,66 +69,80 @@
   .mock-prompt{background:var(--bg2);border-radius:6px;padding:.8rem 1rem;margin-bottom:.8rem;font-size:.82rem;color:var(--navy-80);line-height:1.5;border-left:3px solid var(--gold-border)}
   .mock-response{font-size:.78rem;color:var(--navy-50);line-height:1.5;padding:.6rem 0}
   .mock-risk{margin-top:.8rem;padding:.6rem .8rem;border-radius:4px;font-size:.75rem;font-weight:500}
-  .mock-risk.danger{background:#fef2f2;color:#b91c1c;border:1px solid #fecaca}
+  .mock-risk.danger{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
   .mock-risk.warning{background:#fffbeb;color:#92400e;border:1px solid #fde68a}
-  .mock.full-width{grid-column:1/-1}
 
   /* BREAK */
   .break{min-height:50vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 10vw}
-  .break-light{background:var(--bg2);border-top:1px solid var(--navy-05);border-bottom:1px solid var(--navy-05)}
   .break-dark{background:var(--navy);color:#fff}
-  .break h2{max-width:680px;line-height:1.3;margin-bottom:1rem}
-  .break-light p{color:var(--navy-30);font-size:1.05rem;font-style:italic;max-width:520px;text-align:center}
-  .break-dark h2{color:#fff;font-size:clamp(1.5rem,3vw,2.4rem)}
+  .break-dark h2{color:#fff;font-size:clamp(1.5rem,3vw,2.4rem);max-width:680px;line-height:1.3;margin-bottom:1rem}
   .break-dark p{color:rgba(255,255,255,.55);font-size:1.1rem;font-style:italic;max-width:520px;text-align:center}
 
-  /* CARDS */
-  .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2.5rem;max-width:900px}
-  .card{padding:2rem;border:1px solid var(--navy-10);background:var(--bg);border-radius:4px;transition:border-color .3s,box-shadow .3s}
-  .card:hover{border-color:var(--gold-border);box-shadow:0 2px 12px var(--gold-bg)}
-  .card .num{font-size:.65rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.6rem;font-weight:500}
-  .card h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:.6rem}
-  .card p{font-size:.9rem;line-height:1.6;color:var(--navy-30)}
+  /* COST OF INACTION */
+  .cost-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-top:2.5rem;max-width:840px}
+  .cost-item{padding:1.5rem;border-left:3px solid var(--red-border);background:var(--red-bg);border-radius:0 4px 4px 0}
+  .cost-item h3{font-size:.95rem;color:var(--red);margin-bottom:.3rem}
+  .cost-item p{font-size:.85rem;color:var(--navy-50);max-width:100%;line-height:1.55}
+  .cost-timeline{margin-top:2rem;padding:1.5rem 2rem;background:var(--navy);border-radius:4px;max-width:840px}
+  .cost-timeline p{color:rgba(255,255,255,.7);font-size:.85rem;max-width:100%;text-align:center;margin:0 auto}
+  .cost-timeline strong{color:#fff;font-weight:600}
 
-  /* SEGMENTS */
-  .seg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem;max-width:900px}
-  .seg{padding:1.4rem;border:1px solid var(--navy-10);background:var(--bg2);border-radius:4px}
-  .seg h3{font-size:.95rem;color:var(--navy);margin-bottom:.35rem}
-  .seg .hook{font-size:.82rem;color:var(--gold);font-style:italic;margin-bottom:.4rem;font-weight:400}
-  .seg p{font-size:.78rem;color:var(--navy-30);max-width:100%}
+  /* GAP COMPARISON */
+  .gap-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:2.5rem;max-width:840px}
+  .gap-col{padding:2.5rem}
+  .gap-col.enterprise{background:var(--bg2);border-radius:4px 0 0 4px;border:1px solid var(--navy-05)}
+  .gap-col.sme{background:var(--gold-bg);border-radius:0 4px 4px 0;border:1px solid var(--gold-border)}
+  .gap-col h3{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--navy-30);margin-bottom:1.2rem;font-weight:500}
+  .gap-col.sme h3{color:var(--gold)}
+  .gap-item{display:flex;align-items:flex-start;gap:.6rem;margin-bottom:.9rem}
+  .gap-icon{font-size:.85rem;flex-shrink:0;margin-top:.1rem}
+  .gap-text{font-size:.88rem;color:var(--navy-80);line-height:1.5}
+  .gap-col.sme .gap-text{color:var(--gold-dark)}
 
-  /* PRICING */
-  .pricing{text-align:center;background:var(--bg)}
-  .price-row{display:flex;align-items:center;justify-content:center;gap:3rem;margin-top:2.5rem;flex-wrap:wrap}
-  .price-box{text-align:center}
-  .price-amt{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,3.8rem);font-weight:700;line-height:1;margin-bottom:.3rem}
-  .price-amt.ours{color:var(--navy)}
-  .price-amt.theirs{color:var(--navy-30);text-decoration:line-through}
-  .price-ctx{font-size:.8rem;color:var(--navy-30);max-width:200px;margin:0 auto}
-  .vs-text{font-size:.75rem;color:var(--navy-30);letter-spacing:.15em;text-transform:uppercase;font-weight:500}
-  .pricing-note{margin-top:2rem;font-size:.85rem;color:var(--navy-50);max-width:680px;margin-left:auto;margin-right:auto}
+  /* DELIVERABLES */
+  .del-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem .8rem;margin-top:2rem;max-width:780px;counter-reset:del}
+  .del-grid, .del-item{list-style:none}
+  .del-item{display:flex;align-items:center;gap:.7rem;padding:.65rem .9rem;background:var(--bg2);border-radius:4px;font-size:.85rem;color:var(--navy-80);border:1px solid var(--navy-05);transition:border-color .3s}
+  .del-item:hover{border-color:var(--gold-border)}
+  .del-check{color:var(--gold);font-weight:600;font-size:.9rem;flex-shrink:0}
+
+  /* COMPARISON TABLE */
+  .cmp-table{width:100%;max-width:860px;margin-top:2.5rem;border-collapse:collapse}
+  .cmp-table th,.cmp-table td{padding:.9rem 1.2rem;text-align:left;font-size:.85rem;border-bottom:1px solid var(--navy-05)}
+  .cmp-table th{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy-30);font-weight:500;padding-bottom:.6rem}
+  .cmp-table td{color:var(--navy-50)}
+  .cmp-table .row-label{font-weight:500;color:var(--navy-80);font-size:.82rem;width:110px}
+  .cmp-table .col-diy{opacity:.5}
+  .cmp-table .col-big4{opacity:.5}
+  .cmp-table .col-fpa{color:var(--navy);font-weight:500;background:var(--gold-bg)}
+  .cmp-table thead .col-fpa{color:var(--gold);background:var(--gold-bg);border-radius:4px 4px 0 0}
+
+  /* ROI */
+  .roi-center{text-align:center;max-width:700px;margin:0 auto}
+  .roi-big{font-family:'Playfair Display',serif;font-size:clamp(3rem,7vw,5rem);font-weight:700;color:var(--navy);line-height:1;margin:.8rem 0 .3rem}
+  .roi-sub{font-size:.95rem;color:var(--navy-30);margin-bottom:1.5rem}
+  .roi-row{display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;margin:2rem 0}
+  .roi-box{text-align:center;padding:1.5rem 2rem;border:1px solid var(--navy-10);border-radius:4px;background:var(--bg)}
+  .roi-box.highlight{border-color:var(--gold-border);background:var(--gold-bg)}
+  .roi-amt{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;line-height:1;margin-bottom:.3rem}
+  .roi-label{font-size:.75rem;color:var(--navy-30);max-width:160px}
+  .roi-eq{font-family:'Playfair Display',serif;font-size:clamp(1rem,1.8vw,1.3rem);color:var(--gold);font-style:italic;margin-top:2rem;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6}
 
   /* PROOF */
-  .proof{background:var(--bg2)}
-  .proof-quote{font-family:'Playfair Display',serif;font-size:clamp(1.15rem,2.2vw,1.55rem);font-style:italic;color:var(--navy-80);line-height:1.55;max-width:600px;margin:2rem 0 1rem;padding-left:1.5rem;border-left:3px solid var(--gold)}
-  .proof-attr{font-size:.85rem;color:var(--navy-30);padding-left:1.5rem}
-
-  /* WHY */
-  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;margin-top:2.5rem;max-width:840px}
-  .why-item h3{font-size:1rem;color:var(--navy);margin-bottom:.35rem;font-weight:600}
-  .why-item p{font-size:.9rem;color:var(--navy-30);max-width:380px}
-
-  /* MARKET */
-  .market-big{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,9vw,7rem);font-weight:700;color:var(--navy);line-height:1;margin:1rem 0 .3rem}
-  .market-sub{font-size:1.05rem;color:var(--navy-50);max-width:480px;margin:0 auto 2rem}
+  .proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem;max-width:840px}
+  .proof-item{padding:1.8rem;border:1px solid var(--navy-10);border-radius:4px;background:var(--bg)}
+  .proof-item p{font-size:.88rem;color:var(--navy-50);max-width:100%;line-height:1.6}
+  .proof-item .proof-label{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;font-weight:500}
+  .proof-quote{font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2vw,1.4rem);font-style:italic;color:var(--navy-80);line-height:1.55;max-width:640px;margin:2.5rem 0 1rem;padding-left:1.5rem;border-left:3px solid var(--gold)}
 
   /* PROCESS */
-  .process-row{display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-top:2.5rem}
-  .proc-step{text-align:center}
-  .proc-num{font-size:.6rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:.3rem;font-weight:500}
-  .proc-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--navy)}
-  .proc-sub{font-size:.75rem;color:var(--navy-30);margin-top:.2rem}
-  .proc-arrow{font-size:1rem;color:var(--navy-10)}
+  .process-row{display:flex;align-items:flex-start;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:2.5rem}
+  .proc-step{text-align:center;max-width:200px}
+  .proc-num{font-size:.6rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:.5rem;font-weight:500}
+  .proc-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--navy)}
+  .proc-sub{font-size:.8rem;color:var(--navy-30);margin-top:.3rem;line-height:1.5}
+  .proc-arrow{font-size:1.2rem;color:var(--navy-10);margin-top:1rem}
+  .proc-bottom{margin-top:2.5rem;text-align:center;font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold);font-style:italic}
 
   /* CTA */
   .cta{min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 10vw;background:var(--bg)}
@@ -139,47 +155,44 @@
   .footer-brand{font-size:.7rem;letter-spacing:.15em;color:var(--navy-30);text-transform:uppercase}
 
   .scroll-hint{position:fixed;bottom:2rem;right:2rem;font-size:.55rem;letter-spacing:.12em;color:var(--navy-30);opacity:.3;writing-mode:vertical-rl;transition:opacity .5s;z-index:10;font-weight:500}
-  .scroll-hint.hidden{opacity:0}
 
   @media(max-width:768px){
     section,.hero,.cta{padding:50px 6vw}
-    .stats,.card-grid,.why-grid{grid-template-columns:1fr}
-    .seg-grid,.mock-grid{grid-template-columns:1fr}
-    .price-row{flex-direction:column;gap:1.5rem}
-    .process-row{flex-direction:column;gap:.8rem}
+    .stats,.cost-grid,.gap-grid,.del-grid,.proof-grid{grid-template-columns:1fr}
+    .mock-grid{grid-template-columns:1fr}
+    .cmp-table{font-size:.75rem}
+    .cmp-table th,.cmp-table td{padding:.6rem .7rem}
+    .roi-row{flex-direction:column;gap:1rem}
+    .process-row{flex-direction:column;gap:1rem}
     .proc-arrow{transform:rotate(90deg)}
-    .mock.full-width{grid-column:auto}
+    .gap-col.enterprise{border-radius:4px 4px 0 0}
+    .gap-col.sme{border-radius:0 0 4px 4px}
   }
 </style>
 </head>
 <body>
 
-<div class="scroll-hint" id="sh">SCROLL ↓</div>
+<div class="scroll-hint">SCROLL ↓</div>
 
-<!-- HERO -->
+<!-- SLIDE 1: HOOK -->
 <section class="hero">
   <div class="label reveal">Fractional Partners Asia</div>
   <h1 class="reveal d1">Your team is already<br>using AI at work.</h1>
-  <p class="hero-sub reveal d2">
-    Right now, employees are pasting client data into ChatGPT, uploading contracts to AI tools, and building workflows on platforms nobody approved.
-  </p>
-  <p class="hero-accent reveal d3">
-    No policy. No oversight. No governance. Just exposure — growing every day.
-  </p>
+  <p class="hero-sub reveal d2">Nobody approved it. Nobody's monitoring it. Nobody owns what happens next.</p>
 </section>
 
-<!-- STATS -->
+<!-- SLIDE 2: THE SME BLIND SPOT -->
 <section style="background:var(--bg2)">
-  <div class="label reveal">Singapore, right now</div>
-  <h2 class="reveal d1">AI adoption is accelerating.<br>Governance isn't.</h2>
+  <div class="label reveal">The SME blind spot</div>
+  <h2 class="reveal d1">Enterprise has compliance teams.<br>You don't.</h2>
   <div class="stats">
     <div class="stat reveal d1">
-      <div class="stat-n">73.8%</div>
-      <div class="stat-l">of workplace AI accounts<br>are personal, not corporate</div>
+      <div class="stat-n">85.5%</div>
+      <div class="stat-l">of Singapore SMEs adopting AI<br>with zero governance</div>
     </div>
     <div class="stat reveal d2">
-      <div class="stat-n">3×</div>
-      <div class="stat-l">SME AI adoption<br>tripled in 2024</div>
+      <div class="stat-n">73.8%</div>
+      <div class="stat-l">of workplace AI accounts<br>are personal, not corporate</div>
     </div>
     <div class="stat reveal d3">
       <div class="stat-n">0</div>
@@ -187,17 +200,15 @@
     </div>
   </div>
   <p class="big reveal d4" style="margin-top:2.5rem;">
-    For every dollar spent on AI tools, <em>almost nothing is spent on making sure they're used safely.</em>
+    Every MNC has a CISO and a governance team. <em>Your 30-person firm has good intentions and a shared Google Drive.</em>
   </p>
 </section>
 
-<!-- PAIN — VISUAL MOCKS -->
-<section class="pain-section">
-  <div class="label reveal">What's happening in your office</div>
-  <h2 class="reveal d1">Every one of these<br>has already happened.</h2>
+<!-- SLIDE 3: PAIN SCENARIOS (1 of 2) -->
+<section>
+  <div class="label reveal">What's happening in your office right now</div>
+  <h2 class="reveal d1">These aren't hypotheticals.<br>They've already happened.</h2>
   <div class="mock-grid">
-
-    <!-- Mock 1: ChatGPT code paste -->
     <div class="mock reveal d1">
       <div class="mock-bar">
         <div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div>
@@ -205,17 +216,11 @@
       </div>
       <div class="mock-body">
         <div class="mock-app">ChatGPT — Personal Account</div>
-        <div class="mock-prompt">
-          "Help me debug this function for our payment gateway. Here's the full source code including API keys and client credentials…"
-        </div>
-        <div class="mock-response">
-          Sure! I can see the issue in your authentication flow. Looking at your API key <strong>sk-live-9f8x...</strong> and the client secret…
-        </div>
+        <div class="mock-prompt">"Help me debug this function for our payment gateway. Here's the full source code including API keys and client credentials…"</div>
+        <div class="mock-response">Sure! I can see the issue in your authentication flow. Looking at your API key <strong>sk-live-9f8x...</strong> and the client secret…</div>
         <div class="mock-risk danger">⚠ Your IP and production credentials are now in a third-party training dataset. Irrecoverable.</div>
       </div>
     </div>
-
-    <!-- Mock 2: Contract upload -->
     <div class="mock reveal d2">
       <div class="mock-bar">
         <div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div>
@@ -223,273 +228,281 @@
       </div>
       <div class="mock-body">
         <div class="mock-app">AI Assistant — Free Tier</div>
-        <div class="mock-prompt">
-          "Please review this NDA between [Client Corp] and our company. Flag any unusual clauses."<br>
-          <span style="color:var(--navy-30);font-size:.72rem">📎 ClientCorp_NDA_Confidential_2026.pdf</span>
-        </div>
-        <div class="mock-response">
-          I've reviewed the NDA. The non-compete clause in Section 4.2 is unusually broad, covering all of Southeast Asia for 36 months…
-        </div>
+        <div class="mock-prompt">"Please review this NDA between [Client Corp] and our company. Flag any unusual clauses."<br><span style="color:var(--navy-30);font-size:.72rem">📎 ClientCorp_NDA_Confidential_2026.pdf</span></div>
+        <div class="mock-response">I've reviewed the NDA. The non-compete clause in Section 4.2 is unusually broad, covering all of Southeast Asia for 36 months…</div>
         <div class="mock-risk danger">⚠ Confidential client agreement uploaded to personal account. No DLP. No audit trail. PDPA breach.</div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- Mock 3: Pricing in Copilot -->
-    <div class="mock reveal d3">
+<!-- SLIDE 4: PAIN SCENARIOS (2 of 2) -->
+<section style="background:var(--bg2)">
+  <div class="mock-grid">
+    <div class="mock reveal d1">
       <div class="mock-bar">
         <div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div>
         <div class="mock-url">microsoft365.com — Copilot</div>
       </div>
       <div class="mock-body">
         <div class="mock-app">Microsoft Copilot — Excel</div>
-        <div class="mock-prompt">
-          "Summarise the pricing trends in this spreadsheet and suggest optimal margins for Q3."<br>
-          <span style="color:var(--navy-30);font-size:.72rem">📊 CONFIDENTIAL_Pricing_Matrix_2026.xlsx</span>
-        </div>
-        <div class="mock-response">
-          Based on your pricing data, your average margin is 34.2% across 47 SKUs. I'd suggest increasing margins on Category B by 8%…
-        </div>
+        <div class="mock-prompt">"Summarise the pricing trends in this spreadsheet and suggest optimal margins for Q3."<br><span style="color:var(--navy-30);font-size:.72rem">📊 CONFIDENTIAL_Pricing_Matrix_2026.xlsx</span></div>
+        <div class="mock-response">Based on your pricing data, your average margin is 34.2% across 47 SKUs. I'd suggest increasing margins on Category B by 8%…</div>
         <div class="mock-risk warning">⚠ Proprietary pricing strategy processed by AI. No classification policy. One screenshot from your competitor's inbox.</div>
       </div>
     </div>
-
-    <!-- Mock 4: HR screening -->
-    <div class="mock reveal d4">
+    <div class="mock reveal d2">
       <div class="mock-bar">
         <div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div>
         <div class="mock-url">app.resumescreener.ai</div>
       </div>
       <div class="mock-body">
         <div class="mock-app">AI Resume Screener — Trial Account</div>
-        <div class="mock-prompt">
-          "Screen these 200 CVs for the Senior Engineer role. Rank by fit."<br>
-          <span style="color:var(--navy-30);font-size:.72rem">📁 All_Applications_SeniorEng_Mar2026.zip</span>
-        </div>
-        <div class="mock-response">
-          Screening complete. 43 candidates shortlisted. Filtered by: education (NUS/NTU preferred), years of experience, and keyword match…
-        </div>
-        <div class="mock-risk danger">⚠ 200 people's personal data uploaded to unvetted AI tool. Bias baked into filtering. No one audited. Workplace Fairness Act exposure.</div>
+        <div class="mock-prompt">"Screen these 200 CVs for the Senior Engineer role. Rank by fit."<br><span style="color:var(--navy-30);font-size:.72rem">📁 All_Applications_SeniorEng_Mar2026.zip</span></div>
+        <div class="mock-response">Screening complete. 43 candidates shortlisted. Filtered by: education (NUS/NTU preferred), years of experience, and keyword match…</div>
+        <div class="mock-risk danger">⚠ 200 people's personal data uploaded to unvetted AI tool. Bias baked into filtering. Workplace Fairness Act exposure.</div>
       </div>
     </div>
-
-    <!-- Mock 5: Finance forecasting (full width) -->
-    <div class="mock full-width reveal d5">
-      <div class="mock-bar">
-        <div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div>
-        <div class="mock-url">perplexity.ai</div>
-      </div>
-      <div class="mock-body">
-        <div class="mock-app">AI Research Tool — Personal Account</div>
-        <div class="mock-prompt">
-          "Based on our Q1 revenue of $4.2M and these cost structures, build a financial forecast for the board meeting on Thursday."<br>
-          <span style="color:var(--navy-30);font-size:.72rem">📎 Q1_Financials_Internal_DRAFT.xlsx &nbsp; 📎 Board_Deck_Confidential.pptx</span>
-        </div>
-        <div class="mock-response">
-          I've analysed your financials. Based on Q1 revenue of $4.2M with a 28% gross margin and $1.1M in operating expenses, here's a projected forecast showing 18% YoY growth…
-        </div>
-        <div class="mock-risk danger">⚠ Company financials and board materials in a third-party AI tool. No enterprise agreement. No data residency. Nobody owns this output.</div>
-      </div>
-    </div>
-
   </div>
-</section>
-
-<!-- BREAK -->
-<div class="break break-dark">
-  <h2 class="reveal">The question isn't whether<br>your company is using AI.</h2>
-  <p class="reveal d1">It's whether anyone is in control.</p>
-</div>
-
-<!-- INTRODUCING -->
-<section style="text-align:center;">
-  <div class="label reveal" style="display:inline-block">Introducing</div>
-  <h1 class="reveal d1" style="margin-top:.8rem">Fractional<br>Partners Asia</h1>
-  <p class="big reveal d2" style="margin:1.8rem auto 0;text-align:center;">
-    We install AI governance frameworks that give you <em>visibility, control, and confidence</em> — in 90 days.
-  </p>
-  <p class="reveal d3" style="margin:1.2rem auto 0;text-align:center;font-size:.95rem;color:var(--navy-30);">
-    Not a report. Not a slide deck. A working system your team follows from day one.
+  <p class="big reveal d3" style="margin-top:2.5rem;max-width:720px;">
+    Every one of these happened at a company with <em>fewer than 50 employees.</em>
   </p>
 </section>
 
-<!-- PROGRAMME -->
-<section style="background:var(--bg2);padding:100px 10vw">
-  <div class="label reveal">The 90-Day AI Governance Programme</div>
-  <h2 class="reveal d1">Four phases.<br>One installed framework.</h2>
-  <div class="card-grid">
-    <div class="card reveal d1">
-      <div class="num">Phase 01 · Weeks 1–3</div>
-      <h3>Discover</h3>
-      <p>Map every AI tool, every user, every data flow. Surface the shadow AI. Quantify the exposure. Build the risk register.</p>
-    </div>
-    <div class="card reveal d2">
-      <div class="num">Phase 02 · Weeks 4–6</div>
-      <h3>Design</h3>
-      <p>Acceptable use policies, data classification, access controls, vendor risk assessment. Clear, enforceable rules — not a 40-page document nobody reads.</p>
-    </div>
-    <div class="card reveal d3">
-      <div class="num">Phase 03 · Weeks 7–9</div>
-      <h3>Deploy</h3>
-      <p>Install controls, configure monitoring, train every team — from the C-suite to the interns. Hands-on workshops, not lectures.</p>
-    </div>
-    <div class="card reveal d4">
-      <div class="num">Phase 04 · Weeks 10–12</div>
-      <h3>Embed</h3>
-      <p>Full documentation, ownership transfer, quarterly review cadence, incident response playbook. You own it completely. We step back.</p>
-    </div>
-  </div>
-</section>
-
-<!-- SEGMENTS -->
+<!-- SLIDE 5: WHAT IT COSTS -->
 <section>
-  <div class="label reveal">Who this is for</div>
-  <h2 class="reveal d1">If your industry handles<br>sensitive data, this is for you.</h2>
-  <div class="seg-grid">
-    <div class="seg reveal d1">
-      <h3>Tech & SaaS</h3>
-      <div class="hook">"Your devs are pasting client code into ChatGPT right now."</div>
-      <p>IP leakage, API keys in prompts, unvetted AI in production pipelines.</p>
+  <div class="label reveal">The cost of doing nothing</div>
+  <h2 class="reveal d1">From paste to boardroom crisis.<br>48 hours.</h2>
+  <div class="cost-grid">
+    <div class="cost-item reveal d1">
+      <h3>S$1M maximum PDPA fine</h3>
+      <p>Per breach. The PDPC is actively enforcing. 2025 saw record penalties. 2026 will be worse.</p>
     </div>
-    <div class="seg reveal d2">
-      <h3>Professional Services</h3>
-      <div class="hook">"What happens when a junior pastes a client contract into AI?"</div>
-      <p>Client confidentiality, professional liability, regulatory exposure.</p>
+    <div class="cost-item reveal d2">
+      <h3>One leaked NDA = one lost client</h3>
+      <p>No client cares about your apology letter. They care that their contract ended up in a training dataset.</p>
     </div>
-    <div class="seg reveal d3">
-      <h3>Financial Services</h3>
-      <div class="hook">"MAS expects AI governance. Can you show yours in an audit?"</div>
-      <p>MAS FEAT principles, compliance gaps, client data protection.</p>
+    <div class="cost-item reveal d3">
+      <h3>US$3.23M average breach cost</h3>
+      <p>The average cost of a data breach in ASEAN. For an SME, that's not a setback — it's an extinction event.</p>
     </div>
-    <div class="seg reveal d4">
-      <h3>Manufacturing & Trading</h3>
-      <div class="hook">"Your proprietary pricing model is one paste away from exposure."</div>
-      <p>Trade secrets, supplier data, competitive intelligence leakage.</p>
+    <div class="cost-item reveal d4">
+      <h3>Regulatory walls are closing in</h3>
+      <p>MAS FEAT principles. PDPA enforcement. EU AI Act setting global precedent. Singapore positioning as a trusted AI hub — with teeth.</p>
     </div>
-    <div class="seg reveal d5">
-      <h3>Healthcare & Biotech</h3>
-      <div class="hook">"AI tools + patient data = PDPA nightmare."</div>
-      <p>Patient records, research IP, clinical trial confidentiality.</p>
-    </div>
-    <div class="seg reveal d6">
-      <h3>Education & Training</h3>
-      <div class="hook">"Student data processed by AI with no oversight."</div>
-      <p>PDPA compliance, MOE guidelines, institutional reputation risk.</p>
-    </div>
+  </div>
+  <div class="cost-timeline reveal d5">
+    <p><strong>Monday:</strong> Employee pastes client data into ChatGPT. &nbsp;<strong>Tuesday:</strong> Data enters training pipeline. &nbsp;<strong>Wednesday:</strong> Client's competitor asks the same model a similar question. &nbsp;<strong>Thursday:</strong> Your phone rings.</p>
   </div>
 </section>
 
-<!-- BREAK -->
-<div class="break break-light">
-  <h2 class="reveal">The average data breach in ASEAN<br>costs US$3.23 million.</h2>
-  <p class="reveal d1">AI governance isn't a cost centre. It's insurance.</p>
-</div>
-
-<!-- PRICING -->
-<section class="pricing">
-  <div class="label reveal">Investment</div>
-  <h2 class="reveal d1">C-suite expertise.<br>Fraction of the cost.</h2>
-  <div class="price-row">
-    <div class="price-box reveal d2">
-      <div class="price-amt ours">S$12–25K</div>
-      <div class="price-ctx">FPA 90-Day Programme<br>Installed and handed over</div>
+<!-- SLIDE 6: THE GAP ONLY SMEs HAVE -->
+<section style="background:var(--bg2)">
+  <div class="label reveal">The gap only SMEs have</div>
+  <h2 class="reveal d1">Same AI risk as enterprise.<br>None of the infrastructure.</h2>
+  <div class="gap-grid reveal d2">
+    <div class="gap-col enterprise">
+      <h3>What enterprises have</h3>
+      <div class="gap-item"><span class="gap-icon">✓</span><span class="gap-text">Chief Information Security Officer</span></div>
+      <div class="gap-item"><span class="gap-icon">✓</span><span class="gap-text">Data Loss Prevention tools</span></div>
+      <div class="gap-item"><span class="gap-icon">✓</span><span class="gap-text">Compliance & governance teams</span></div>
+      <div class="gap-item"><span class="gap-icon">✓</span><span class="gap-text">Vendor risk assessment process</span></div>
+      <div class="gap-item"><span class="gap-icon">✓</span><span class="gap-text">AI acceptable use policies</span></div>
+      <div class="gap-item"><span class="gap-icon">✓</span><span class="gap-text">Incident response playbooks</span></div>
+      <div class="gap-item"><span class="gap-icon">✓</span><span class="gap-text">Quarterly audit cadence</span></div>
     </div>
-    <div class="vs-text reveal d3">vs</div>
-    <div class="price-box reveal d4">
-      <div class="price-amt theirs">S$80–200K</div>
-      <div class="price-ctx">Big 4 consultancy<br>6–12 months, mostly reports</div>
+    <div class="gap-col sme">
+      <h3>What your SME has</h3>
+      <div class="gap-item"><span class="gap-icon">✗</span><span class="gap-text">No dedicated security role</span></div>
+      <div class="gap-item"><span class="gap-icon">✗</span><span class="gap-text">No visibility into AI tool usage</span></div>
+      <div class="gap-item"><span class="gap-icon">✗</span><span class="gap-text">No governance framework</span></div>
+      <div class="gap-item"><span class="gap-icon">✗</span><span class="gap-text">No vendor vetting for AI tools</span></div>
+      <div class="gap-item"><span class="gap-icon">✗</span><span class="gap-text">No AI usage policy</span></div>
+      <div class="gap-item"><span class="gap-icon">✗</span><span class="gap-text">No breach response plan</span></div>
+      <div class="gap-item"><span class="gap-icon">✗</span><span class="gap-text">No ongoing oversight</span></div>
     </div>
   </div>
-  <p class="pricing-note reveal d5">
-    <span style="color:var(--gold);font-weight:500">Budget 2026:</span> AI governance investment qualifies for 400% tax deduction under the Enterprise Innovation Scheme. Enterprise SG co-funding of up to 70% may also apply.
-  </p>
-  <p class="pricing-note reveal d6" style="margin-top:.6rem">
-    Example: S$20K engagement → up to 70% co-funding → <span style="color:var(--navy);font-weight:500">your cost: as low as S$6,000.</span>
+  <p class="big reveal d3" style="margin-top:2.5rem;">
+    We close this gap. <em>In 90 days. Completely.</em>
   </p>
 </section>
 
-<!-- WHY -->
+<!-- SLIDE 7: WHAT YOU GET -->
 <section>
-  <div class="label reveal">Why Fractional Partners</div>
-  <h2 class="reveal d1">We don't advise.<br>We install.</h2>
-  <div class="why-grid">
-    <div class="why-item reveal d2">
-      <h3>Operators, not consultants</h3>
-      <p>We've built and run businesses. Our frameworks work in the real world, not in slide decks that collect dust.</p>
-    </div>
-    <div class="why-item reveal d3">
-      <h3>AI-native methodology</h3>
-      <p>We don't just understand AI — we build with it. Every framework is designed by practitioners who use these tools daily.</p>
-    </div>
-    <div class="why-item reveal d4">
-      <h3>Zero brand exposure</h3>
-      <p>We operate behind the scenes. Your competitors, employees, and clients never know we're involved.</p>
-    </div>
-    <div class="why-item reveal d5">
-      <h3>90 days, then we're gone</h3>
-      <p>No retainer traps. No dependency. We install, train your team, hand over, and leave. You own everything.</p>
-    </div>
-  </div>
+  <div class="label reveal">What you walk away with</div>
+  <h2 class="reveal d1">Not a report.<br>20 installed governance assets.</h2>
+  <p class="reveal d2" style="margin-bottom:.5rem">After 90 days, your organisation owns all of these — permanently:</p>
+  <ul class="del-grid">
+    <li class="del-item reveal d1"><span class="del-check">✓</span> AI tool census & risk register</li>
+    <li class="del-item reveal d1"><span class="del-check">✓</span> Shadow AI exposure report</li>
+    <li class="del-item reveal d2"><span class="del-check">✓</span> AI Acceptable Use Policy</li>
+    <li class="del-item reveal d2"><span class="del-check">✓</span> Data classification framework</li>
+    <li class="del-item reveal d3"><span class="del-check">✓</span> Vendor risk assessment process</li>
+    <li class="del-item reveal d3"><span class="del-check">✓</span> AI access control matrix</li>
+    <li class="del-item reveal d3"><span class="del-check">✓</span> Co-AI operating model</li>
+    <li class="del-item reveal d3"><span class="del-check">✓</span> Governance ownership matrix</li>
+    <li class="del-item reveal d4"><span class="del-check">✓</span> Workforce AI training (all levels)</li>
+    <li class="del-item reveal d4"><span class="del-check">✓</span> Corporate AI tool provisioning</li>
+    <li class="del-item reveal d4"><span class="del-check">✓</span> Department-specific guidelines</li>
+    <li class="del-item reveal d4"><span class="del-check">✓</span> Incident response protocol</li>
+    <li class="del-item reveal d5"><span class="del-check">✓</span> Governance dashboard</li>
+    <li class="del-item reveal d5"><span class="del-check">✓</span> Quarterly review cadence</li>
+    <li class="del-item reveal d5"><span class="del-check">✓</span> Compliance monitoring setup</li>
+    <li class="del-item reveal d5"><span class="del-check">✓</span> Board reporting template</li>
+    <li class="del-item reveal d6"><span class="del-check">✓</span> Employee onboarding AI module</li>
+    <li class="del-item reveal d6"><span class="del-check">✓</span> PDPA compliance checklist</li>
+    <li class="del-item reveal d6"><span class="del-check">✓</span> AI ethics decision framework</li>
+    <li class="del-item reveal d6"><span class="del-check">✓</span> Full documentation & handover pack</li>
+  </ul>
 </section>
 
-<!-- MARKET -->
-<section style="background:var(--bg2);text-align:center">
-  <div class="label reveal">The governance gap</div>
-  <div class="market-big reveal d1">85.5%</div>
-  <div class="market-sub reveal d2">
-    of Singapore SMEs are adopting AI<br>without any governance framework.
+<!-- SLIDE 8: WHY NOT DIY / BIG 4 -->
+<section style="background:var(--bg2)">
+  <div class="label reveal">Your real options</div>
+  <h2 class="reveal d1">Three ways to get AI governance.<br>Only one works for SMEs.</h2>
+  <table class="cmp-table reveal d2">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="col-diy">Do it yourself</th>
+        <th class="col-big4">Big 4 consultancy</th>
+        <th class="col-fpa">Fractional Partners</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Timeline</td>
+        <td class="col-diy">Never finishes</td>
+        <td class="col-big4">6–12 months</td>
+        <td class="col-fpa">90 days</td>
+      </tr>
+      <tr>
+        <td class="row-label">Cost</td>
+        <td class="col-diy">"Free" (until the breach)</td>
+        <td class="col-big4">S$80–200K</td>
+        <td class="col-fpa">S$12–25K</td>
+      </tr>
+      <tr>
+        <td class="row-label">Output</td>
+        <td class="col-diy">Google Doc nobody reads</td>
+        <td class="col-big4">200-page PDF</td>
+        <td class="col-fpa">Working system</td>
+      </tr>
+      <tr>
+        <td class="row-label">Who does it</td>
+        <td class="col-diy">Your ops manager (part-time)</td>
+        <td class="col-big4">Junior consultant</td>
+        <td class="col-fpa">CXO operators</td>
+      </tr>
+      <tr>
+        <td class="row-label">After delivery</td>
+        <td class="col-diy">Nothing changes</td>
+        <td class="col-big4">Report on a shelf</td>
+        <td class="col-fpa">You own everything</td>
+      </tr>
+      <tr>
+        <td class="row-label">SME-ready</td>
+        <td class="col-diy">No framework</td>
+        <td class="col-big4">Built for MNCs</td>
+        <td class="col-fpa">Built for you</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SLIDE 9: THE NUMBERS WORK -->
+<section style="text-align:center">
+  <div class="label reveal" style="display:inline-block">The numbers</div>
+  <h2 class="reveal d1">S$6K to prevent a<br>S$4.2M problem.</h2>
+  <div class="roi-row">
+    <div class="roi-box reveal d2">
+      <div class="roi-amt" style="color:var(--navy)">S$12–25K</div>
+      <div class="roi-label">Programme investment</div>
+    </div>
+    <div class="reveal d3" style="font-size:.75rem;color:var(--navy-30);letter-spacing:.1em">MINUS</div>
+    <div class="roi-box reveal d3">
+      <div class="roi-amt" style="color:var(--gold)">Up to 70%</div>
+      <div class="roi-label">Enterprise SG co-funding</div>
+    </div>
+    <div class="reveal d4" style="font-size:.75rem;color:var(--navy-30);letter-spacing:.1em">EQUALS</div>
+    <div class="roi-box highlight reveal d4">
+      <div class="roi-amt" style="color:var(--gold-dark)">~S$6K</div>
+      <div class="roi-label">Your net cost</div>
+    </div>
   </div>
-  <p class="reveal d3" style="margin:0 auto;text-align:center;font-size:.85rem;color:var(--navy-30);max-width:560px">
-    MAS FEAT principles &nbsp;·&nbsp; PDPA enforcement increasing &nbsp;·&nbsp; EU AI Act setting global precedent &nbsp;·&nbsp; Singapore positioning as trusted AI hub
+  <p class="reveal d5" style="margin:1.5rem auto 0;text-align:center;font-size:.85rem;color:var(--navy-50);max-width:580px">
+    <strong style="color:var(--gold)">Budget 2026:</strong> AI governance qualifies for 400% tax deduction under the Enterprise Innovation Scheme. The government is paying you to do this.
   </p>
+  <p class="roi-eq reveal d6">The board meeting writes itself.</p>
 </section>
 
-<!-- PROCESS -->
+<!-- SLIDE 10: PROOF -->
+<section style="background:var(--bg2)">
+  <div class="label reveal">Who's behind this</div>
+  <h2 class="reveal d1">Operators who've done this<br>at scale — for you.</h2>
+  <div class="proof-grid">
+    <div class="proof-item reveal d2">
+      <div class="proof-label">Enterprise technology</div>
+      <p>Built and ran platforms managing thousands of workers across Southeast Asia. Enterprise-grade systems, SME-friendly delivery.</p>
+    </div>
+    <div class="proof-item reveal d3">
+      <div class="proof-label">AI governance</div>
+      <p>Designed and delivered AI governance training for C-suite executives in energy trading. Practitioners, not theorists.</p>
+    </div>
+    <div class="proof-item reveal d4">
+      <div class="proof-label">Digital transformation</div>
+      <p>Led transformation programmes in publicly listed companies. We know what it takes to change how an organisation operates.</p>
+    </div>
+    <div class="proof-item reveal d5">
+      <div class="proof-label">Singapore regulatory</div>
+      <p>Deep expertise in PDPA, IMDA frameworks, MAS FEAT principles, and the Workplace Fairness Act. We know the rules you're playing by.</p>
+    </div>
+  </div>
+  <div class="proof-quote reveal d6">
+    "We don't advise from the sidelines. We embed inside your organisation, install the controls, train your team, and leave. You own everything. Your competitors never know we were there."
+  </div>
+</section>
+
+<!-- SLIDE 11: HOW TO START -->
 <section>
-  <div class="label reveal">How it works</div>
-  <h2 class="reveal d1">From first call to<br>full governance in 90 days.</h2>
+  <div class="label reveal">Getting started</div>
+  <h2 class="reveal d1">From this deck to<br>full governance. 93 days.</h2>
   <div class="process-row">
     <div class="proc-step reveal d1">
-      <div class="proc-num">Step 01</div>
+      <div class="proc-num">Day 1</div>
       <div class="proc-title">Discovery call</div>
-      <div class="proc-sub">30 min · Confidential</div>
+      <div class="proc-sub">30 minutes. Confidential.<br>We map your exposure.</div>
     </div>
     <div class="proc-arrow reveal d2">→</div>
     <div class="proc-step reveal d2">
-      <div class="proc-num">Step 02</div>
+      <div class="proc-num">Day 2–7</div>
       <div class="proc-title">Risk assessment</div>
-      <div class="proc-sub">1 week · No obligation</div>
+      <div class="proc-sub">One week. No obligation.<br>You see exactly where you stand.</div>
     </div>
     <div class="proc-arrow reveal d3">→</div>
     <div class="proc-step reveal d3">
-      <div class="proc-num">Step 03</div>
-      <div class="proc-title">Programme kick-off</div>
-      <div class="proc-sub">90-day engagement</div>
+      <div class="proc-num">Day 8–90</div>
+      <div class="proc-title">Programme delivery</div>
+      <div class="proc-sub">Full installation.<br>20 governance assets. Hands-on.</div>
     </div>
     <div class="proc-arrow reveal d4">→</div>
     <div class="proc-step reveal d4">
-      <div class="proc-num">Step 04</div>
-      <div class="proc-title">Governance live</div>
-      <div class="proc-sub">You own it. We exit.</div>
+      <div class="proc-num">Day 93</div>
+      <div class="proc-title">You own it</div>
+      <div class="proc-sub">We hand over.<br>We exit. It's yours.</div>
     </div>
   </div>
+  <p class="proc-bottom reveal d5">No retainers. No dependency. No surprises.</p>
 </section>
 
-<!-- BREAK -->
-<div class="break break-dark">
-  <h2 class="reveal">Every day without AI governance<br>is a day your business is exposed.</h2>
-  <p class="reveal d1">The breach you don't see coming is the one that ends the conversation.</p>
-</div>
-
-<!-- CTA -->
+<!-- SLIDE 12: CTA -->
 <section class="cta">
   <div class="label reveal">Next step</div>
   <h2 class="reveal d1">Find out where<br>you're exposed.</h2>
   <p class="closing reveal d2">
-    One confidential conversation. No obligations.<br>We'll tell you exactly what your risk looks like — and what 90 days can fix.
+    One confidential conversation. No obligations.<br>We'll show you exactly what your risk looks like — and what 90 days can fix.
   </p>
-  <a href="mailto:hello@fractionalpartners.asia" class="btn reveal d3">
-    Book a confidential call
-  </a>
+  <a href="mailto:hello@fractionalpartners.asia" class="btn reveal d3">Book a confidential call</a>
   <p class="reveal d4" style="margin-top:1.2rem;font-size:.78rem;color:var(--navy-30)">
     hello@fractionalpartners.asia &nbsp;·&nbsp; fractionalpartners.asia
   </p>
